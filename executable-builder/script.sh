@@ -2,7 +2,7 @@
 
 have_permission=`id -u`
 if [ ! "$have_permission" == "0" ];then
-    echo "This program need root permission!" >&2
+    echo "This program needs root permission!" >&2
     exit 1
 fi
 
@@ -15,7 +15,7 @@ if [ ! -f "$file_path" ];then
 fi
 
 echo "#!/bin/bash" > $exec_command
-echo "$file_path \$@" >> $exec_command
+echo "$file_path \$@" >> $exec_command # Run application with all user given argument
 chmod +x $exec_command
 mv $exec_command /usr/local/bin
 
