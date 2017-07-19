@@ -14,10 +14,7 @@ if [ ! -f "$file_path" ];then
     exit 2
 fi
 
-echo "#!/bin/bash" > $exec_command
-echo "$file_path \$@" >> $exec_command # Run application with all user given argument
-chmod +x $exec_command
-mv $exec_command /usr/local/bin
+ln -s file_path /usr/bin/$exec_command
 
 echo "done!"
 exit 0
