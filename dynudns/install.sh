@@ -5,7 +5,7 @@ read -sp 'Password: ' password
 echo
 
 # save details in file
-echo "$username:$password" > data.txt
+echo "$username:$password:$addr" > data.txt
 
 # set cronjob
 echo "setting cronjob ..."
@@ -13,7 +13,6 @@ echo "setting cronjob ..."
 crontab -l > usercron
 # current dir address
 addr="$(pwd)"
-echo "$addr"
 #echo new cronjob into cron file
 echo "*/10 * * * * $addr/dynu.sh >/dev/null 2>&1" >> usercron
 #install new cron file
